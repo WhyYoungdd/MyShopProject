@@ -1,0 +1,35 @@
+﻿@page
+@model WebApplication1.Pages.Category.IndexModel
+@{
+    ViewData["Title"] = "Категории";
+}
+
+<h1>Список категорий</h1>
+
+<p>
+    <a asp-page="/Category/Create" class="btn btn-primary">Добавить категорию</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Название</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Categories)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@category.Id">
+                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
