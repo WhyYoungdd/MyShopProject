@@ -1,0 +1,20 @@
+﻿@page
+@model WebApplication1.Pages.Category.EditModel
+@{
+    ViewData["Title"] = "Редактировать категорию";
+}
+
+<h1>Редактировать категорию</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Category.Id" />
+
+    <div class="mb-3">
+        <label asp-for="Category.Name" class="form-label">Название категории</label>
+        <input asp-for="Category.Name" class="form-control" />
+        <span asp-validation-for="Category.Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a asp-page="/Category/Index" class="btn btn-secondary">Отмена</a>
+</form>
