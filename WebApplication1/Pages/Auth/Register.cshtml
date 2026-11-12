@@ -1,0 +1,40 @@
+﻿@page
+@model WebApplication1.Pages.Auth.RegisterModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">Регистрация</h2>
+
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @Model.ErrorMessage
+                        </div>
+                    }
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" type="email" placeholder="name@example.com" required />
+                        </div>
+                        <div class="mb-4">
+                            <label asp-for="Password" class="form-label">Пароль</label>
+                            <input asp-for="Password" class="form-control" type="password" placeholder="••••••" required />
+                            <div class="form-text">Мин. 6 символов, буквы и цифры.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2">Создать аккаунт</button>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <span class="text-muted">Уже есть аккаунт?</span> <a asp-page="/Auth/Login" class="text-decoration-none">Войти</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,13 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\cap.jpg
+wwwroot\images\crew.jpg
+wwwroot\images\hoodie.jpg
+wwwroot\images\mug.jpg
+wwwroot\images\socks.jpg
+wwwroot\images\tee-tomato.jpg
+wwwroot\images\tee-toolbox.jpg
+wwwroot\images\tote.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

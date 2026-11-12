@@ -19,14 +19,44 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                    <!-- ЛЕВАЯ ЧАСТЬ: Основные ссылки -->
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Category/Index">Категории</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Category/Create">Добавить категорию</a>
                         </li>
                     </ul>
+
+                    <!-- ПРАВАЯ ЧАСТЬ: Вход, Регистрация или Профиль -->
+                    <ul class="navbar-nav">
+                        @if (Context.Session.GetString("UserEmail") != null)
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link text-success fw-bold">Привет, @Context.Session.GetString("UserEmail")!</span>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" asp-page="/Auth/Logout" class="d-inline">
+                                    <button type="submit" class="btn btn-link nav-link text-danger">Выйти</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Auth/Login">Вход</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Auth/Register">Регистрация</a>
+                            </li>
+                        }
+                    </ul>
+
                 </div>
             </div>
         </nav>
